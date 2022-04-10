@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title%}Home{% endblock %}
+{% block content %}
+<h1>this is the home page</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="Your Top Champ">Your Top</label>
+        <input
+            type="Summoner"
+            class="form-control"
+            id="Your Top Summoner"
+            name="Your Top Summoner"
+            placeholder="Your Top Summoner"
+        />
+        <input
+            type="Champ"
+            class="form-control"
+            id="Your Top Champ"
+            name="Your Top Champ"
+            placeholder="Your Top Champ"
+        />        
+    </div>
+    <div class="form-group">
+        <label for="Your Jung">Your Jung</label>
+        <input
+            type="Summoner"
+            class="form-control"
+            id="Your Jung Summoner"
+            name="Your Jung Summoner"
+            placeholder="Your Jung Summoner"
+        />
+        <input
+            type="Champ"
+            class="form-control"
+            id="Your Jung Champ"
+            name="Your Jung Champ"
+            placeholder="Your Jung Champ"
+        />        
+    </div>
+    <div class="form-group">
+        <label for="Your Mid">Your Mid</label>
+        <input
+            type="Summoner"
+            class="form-control"
+            id="Your Mid Summoner"
+            name="Your Mid Summoner"
+            placeholder="Your Mid Summoner"
+        />
+        <input
+            type="Champ"
+            class="form-control"
+            id="Your Mid Champ"
+            name="Your Mid Champ"
+            placeholder="Your Mid Champ"
+        />        
+    </div>
+    <div class="form-group">
+        <label for="Your Bot">Your Bot</label>
+        <input
+            type="Summoner"
+            class="form-control"
+            id="Your Bot Summoner"
+            name="Your Bot Summoner"
+            placeholder="Your Bot Summoner"
+        />
+        <input
+            type="Champ"
+            class="form-control"
+            id="Your Bot Champ"
+            name="Your Bot Champ"
+            placeholder="Your Bot Champ"
+        />
+    </div>
+    <div class="form-group">
+        <label for="Your Sup">Your Sup</label>
+        <input
+            type="Summoner"
+            class="form-control"
+            id="Your Sup Summoner"
+            name="Your Sup Summoner"
+            placeholder="Your Sup Summoner"
+        />
+        <input
+            type="Champ"
+            class="form-control"
+            id="Your Sup Champ"
+            name="Your Sup Champ"
+            placeholder="Your Sup Champ"
+        />
+    </div> 
+    <div class="form-group">
+        <label for="Their Top Champ">Their Top</label>
+        <input
+            type="Champ"
+            class="form-control"
+            id="Their Top Champ"
+            name="Their Top Champ"
+            placeholder="Their Top Champ"
+        />        
+    </div>
+    <div class="form-group">
+        <label for="Their Jung Champ">Their Jung</label>
+        <input
+            type="Champ"
+            class="form-control"
+            id="Their Jung Champ"
+            name="Their Jung Champ"
+            placeholder="Their Jung Champ"
+        />        
+    </div>
+    <div class="form-group">
+        <label for="Their Mid Champ">Their Mid</label>
+        <input
+            type="Champ"
+            class="form-control"
+            id="Their Mid Champ"
+            name="Their Mid Champ"
+            placeholder="Their Mid Champ"
+        />        
+    </div>
+    <div class="form-group">
+        <label for="Their Bot Champ">Their Bot</label>
+        <input
+            type="Champ"
+            class="form-control"
+            id="Their Bot Champ"
+            name="Their Bot Champ"
+            placeholder="Their Bot Champ"
+        />        
+    </div>
+    <div class="form-group">
+        <label for="Their Sup Champ">Their Sup</label>
+        <input
+            type="Champ"
+            class="form-control"
+            id="Their Sup Champ"
+            name="Their Sup Champ"
+            placeholder="Their Sup Champ"
+        />        
+    </div>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <br />
+  </form>
+{% endblock %}
