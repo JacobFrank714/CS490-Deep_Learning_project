@@ -104,7 +104,7 @@ def get_stats(player, new_df):
     new_df['Wards_Killed'] += wards_killed 
     new_df['CC_Score'] += cc_score 
         
-def Lobby(top_sum,top_champ, jung_sum,jung_champ, mid_sum,mid_champ, bot_sum,bot_champ, sup_sum,sup_champ, e_top,e_jung,e_mid,e_bot,e_sup):
+def Lobby(side,top_sum,top_champ, jung_sum,jung_champ, mid_sum,mid_champ, bot_sum,bot_champ, sup_sum,sup_champ, e_top,e_jung,e_mid,e_bot,e_sup):
 
     player1 = cass.Summoner(name=top_sum, region="NA")
     player2 = cass.Summoner(name=jung_sum, region="NA")
@@ -162,6 +162,7 @@ def Lobby(top_sum,top_champ, jung_sum,jung_champ, mid_sum,mid_champ, bot_sum,bot
 
     stat_import = pd.DataFrame()
     
+    stat_import['Side'] = [side]
     stat_import['Top_Current_Champ'] = [0]
     stat_import['Top_Current_Champ'] = top_champ
     stat_import['Top_games_on_role'] = [0]

@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block title%}Home{% endblock %}
 {% block content %}
-<h1>this is the home page</h1>
+<h1>Enter in team information</h1>
 <form method="POST">
+    <div class="form-group">
+        <label for="Your Side">Your Side</label>
+        <input
+            type="Side"
+            class="form-control"
+            id="Your Side"
+            name="Your Side"
+            placeholder="Your Side"
+        />        
+    </div>
     <div class="form-group">
         <label for="Your Top Champ">Your Top</label>
         <input
@@ -136,7 +146,7 @@
             id="Their Sup Champ"
             name="Their Sup Champ"
             placeholder="Their Sup Champ"
-        />        
+        />
     </div>
     <br />
     <div align="center">
