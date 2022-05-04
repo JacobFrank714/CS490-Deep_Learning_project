@@ -1,11 +1,5 @@
-from flask import Blueprint, render_template, request, flash
-from requests import get
+from flask import Blueprint, render_template, request
 from LiveLobby import Lobby
-from keras.models import load_model
-from flask import jsonify
-
-from .models import Prediciton
-import pandas as pd
 
 views = Blueprint('views', __name__)
 
