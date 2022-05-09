@@ -9,6 +9,7 @@ def home():
 
 @views.route('/', methods=['POST'])
 def predict():
+  # Recieves all the inputs from the form in the web app
       if request.method == 'POST':
         yourSide = request.form.get('Your Side')
         yourRank = request.form.get('Your Rank')
@@ -27,16 +28,17 @@ def predict():
         theirMidChamp = request.form.get('Their Mid Champ')
         theirBotChamp = request.form.get('Their Bot Champ')
         theirSupChamp = request.form.get('Their Sup Champ')
-        
+        # calls the lobby function to create the dataframe, process the data, and predict
         current_lobby = Lobby(side=yourSide,rank=yourRank,top_sum=yourTopSum,top_champ=yourTopChamp,
                                 jung_sum=yourJungSum,jung_champ=yourJungChamp,
                                 mid_sum=yourMidSum,mid_champ=yourMidChamp,
                                 bot_sum=yourBotSum,bot_champ=yourBotChamp,
                                 sup_sum=yourSupSum,sup_champ=yourSupChamp,
                                 e_top=theirTopChamp,e_jung=theirJungChamp,e_mid=theirMidChamp,e_bot=theirBotChamp,e_sup=theirSupChamp)
-        print(current_lobby)
+        # Setting the prediction to either win or loss since the prediciton isn't a true percentage chance
         if current_lobby >= .5:
           current_lobby = 'Win'
         elif current_lobby < .5:
           current_lobby = 'Lose'
+        # outputs the prediction and resets all the inputs
         return render_template('home.html', prediction=current_lobby)

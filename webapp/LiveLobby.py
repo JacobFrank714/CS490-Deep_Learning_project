@@ -5,7 +5,7 @@ from ProcessPredictFunctions import ProcessLiveData, Predict
 cass.set_riot_api_key("RGAPI-e22a2f61-a2fb-4553-b8b8-9216f7bff4d4")
 
 def get_stats(player, new_df):
-    
+    # Function that gets all the needed stats for the player provided and inserts them into the dataframe
     first_blood = player.stats.first_blood_kill
     double_kill = player.stats.double_kills
     triple_kill = player.stats.triple_kills
@@ -54,7 +54,8 @@ def get_stats(player, new_df):
         
         
 def Lobby(side, rank, top_sum, top_champ, jung_sum, jung_champ, mid_sum, mid_champ, bot_sum, bot_champ, sup_sum, sup_champ, e_top, e_jung, e_mid, e_bot, e_sup):
-
+    # Initializes the dataframe with the column names with initial values of zero or the input parameters that matches
+    # Getting the player id using the summoner names
     player1 = cass.Summoner(name=top_sum, region="NA")
     player2 = cass.Summoner(name=jung_sum, region="NA")
     player3 = cass.Summoner(name=mid_sum, region="NA")
@@ -66,13 +67,13 @@ def Lobby(side, rank, top_sum, top_champ, jung_sum, jung_champ, mid_sum, mid_cha
     puuid_three = player3.puuid
     puuid_four = player4.puuid
     puuid_five = player5.puuid
-
+    # Getting the most recent 20 games from each player's match history
     top_history = cass.MatchHistory(puuid=puuid_one,continent="AMERICAS", region='NA',begin_index = 0, end_index = 20,queue=cass.Queue.ranked_solo_fives)
     jg_history = cass.MatchHistory(puuid=puuid_two,continent="AMERICAS", region='NA',begin_index = 0, end_index = 20,queue=cass.Queue.ranked_solo_fives)
     mid_history = cass.MatchHistory(puuid=puuid_three,continent="AMERICAS", region='NA',begin_index = 0, end_index = 20,queue=cass.Queue.ranked_solo_fives)
     bot_history = cass.MatchHistory(puuid=puuid_four,continent="AMERICAS", region='NA',begin_index = 0, end_index = 20,queue=cass.Queue.ranked_solo_fives)
     sup_history = cass.MatchHistory(puuid=puuid_five,continent="AMERICAS", region='NA',begin_index = 0, end_index = 20,queue=cass.Queue.ranked_solo_fives)
-
+    # Initialize the stats with 0
     new_df = pd.DataFrame()
     new_df['First_Bloods'] = [0]
     new_df['Double_Kills'] = [0]
@@ -136,7 +137,7 @@ def Lobby(side, rank, top_sum, top_champ, jung_sum, jung_champ, mid_sum, mid_cha
     stat_import['Sup_Win_2'] = [0]
     stat_import['Sup_Win_5'] = [0]
 
-
+    # Input all the input parameters into the dataframe
     stat_import['Side'] = [side]
     stat_import['Rank'] = [rank]
     stat_import['Top_Current_Champ'] = top_champ
@@ -149,7 +150,7 @@ def Lobby(side, rank, top_sum, top_champ, jung_sum, jung_champ, mid_sum, mid_cha
     stat_import['Mid_Enemy_Champ'] = e_mid
     stat_import['Bot_Enemy_Champ'] = e_bot
     stat_import['Sup_Enemy_Champ'] = e_sup
-
+    # Getting each player's wins and losses
     try:
         match_count = 0
         for matches in top_history:
@@ -289,7 +290,7 @@ def Lobby(side, rank, top_sum, top_champ, jung_sum, jung_champ, mid_sum, mid_cha
     new_df.iloc[0:,5:] = new_df.iloc[0:,5:] / 20
     for column in new_df.columns:
         stat_import['Sup_'+column] = new_df[column] 
-        new_df[column] = [0]  
-    print(stat_import)
+        new_df[column] = [0]
+    # calls our predict function from the ProcessPredictFunctions file
     prediction = Predict(stat_import)
     return prediction
