@@ -1,5 +1,5 @@
 # CS490-Deep_Learning_project
 
-Presentation: https://docs.google.com/presentation/d/1Eo7L3wUZe_CidFh4TKwFnGYrCK3yAljy8lmMWwLp61Y/edit#slide=id.g1241199ce29_0_6
+Presentation: https://docs.google.com/presentation/d/1m-2c61_tciUFXSmsGAkNHpdRr-x2bCbDCPLxJIBp9-I/edit?usp=sharing
 
-Video: 
+Video: https://youtu.be/T6WQN9ecX60
